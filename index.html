@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bolo Likho</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#27272A">
+<link rel="icon" href="icon.svg">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><h1 data-t="title"></h1>
+<select id="ui" aria-label="Interface language"><option value="ur">اردو</option><option value="en">English</option></select></header>
+<main>
+<section class="card">
+<label class="drop" for="file"><b data-t="drop"></b><small>WAV · MP3 · M4A · AAC · OGG · FLAC · WEBM · MP4</small></label>
+<input id="file" type="file" accept="audio/*,video/*" hidden>
+<p id="fname"></p>
+<div class="row">
+<label><span data-t="lang"></span><select id="lang"><option value="urdu" data-t="ur"></option><option value="english" data-t="en"></option><option value="auto" data-t="auto"></option></select></label>
+<label><span data-t="model"></span><select id="model"><option value="Xenova/whisper-tiny">Tiny</option><option value="Xenova/whisper-base">Base</option><option value="Xenova/whisper-small" selected>Small</option></select></label>
+<label><span data-t="task"></span><select id="task"><option value="transcribe" data-t="tx"></option><option value="translate" data-t="tr"></option></select></label>
+</div>
+<div class="row"><button id="rec" data-t="rec"></button><button id="go" class="primary" data-t="go"></button><button id="resume" class="primary" hidden data-t="resume"></button><button id="stop" hidden data-t="stop"></button></div>
+<progress id="bar" max="1" value="0" hidden></progress>
+<p id="status" role="status"></p>
+</section>
+<section class="card" id="res" hidden>
+<div class="row"><select id="view"><option value="para" data-t="vpara"></option><option value="lines" data-t="vlines"></option></select>
+<input id="find" type="search" data-p="find"><button id="next" data-t="next"></button></div>
+<p id="diag" dir="ltr"></p>
+<textarea id="txt" dir="auto" spellcheck="false"></textarea>
+<div class="row"><button id="copy" data-t="copy"></button><button data-dl="txt">TXT</button><button data-dl="srt">SRT</button><button data-dl="vtt">VTT</button><button id="docx">DOCX</button><button id="pdf">PDF</button><button id="clr" data-t="clr"></button></div>
+</section>
+</main>
+<div id="pv" dir="auto"></div>
+<script src="core.js"></script>
+<script src="docx.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
